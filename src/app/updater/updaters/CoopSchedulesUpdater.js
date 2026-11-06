@@ -1,0 +1,79 @@
+import Updater from './Updater.js';
+
+export default class CoopSchedulesUpdater extends Updater {
+    constructor(storage) {
+        super({
+            name: 'Co-op Schedules',
+            filename: 'coop-schedules.json',
+            calendarFilename: 'coop-schedules.ics',
+            request: (splatnet) => splatnet.getCoopSchedules(),
+            imagePaths: [
+                '$..stage.image',
+                '$..weapons[*].weapon.image',
+                '$..coop_special_weapon.image',
+            ],
+            localization: [
+                {
+                    name: 'coop_stages',
+                    entities: '$..stage',
+                    id: 'image', // Unfortunately these don't have an ID, so we'll just match them by image URL
+                    values: 'name',
+                },
+                {
+                    name: 'coop_special_weapons',
+                    entities: '$..coop_special_weapon',
+                    id: 'image', // These don't have a name either
+                    values: 'name',
+                },
+                {
+                    name: 'weapons',
+                    entities: '$..weapons[*].weapon',
+                    id: 'id',
+                    values: 'name',
+                },
+                {
+                    name: 'weapon_subs',
+                    entities: '$..weapons[*].weapon.sub',
+                    id: 'id',
+                    values: 'name',
+                },
+                {
+                    name: 'weapon_specials',
+                    entities: '$..weapons[*].weapon.special',
+                    id: 'id',
+                    values: 'name',
+                },
+            ],
+        }, storage);
+    }
+
+    getCalendarEntries({ details, schedules }) {
+        let events = [];
+
+        // Add event information
+        events.push(...schedules.map(event => ({
+            id: `coop-${event.start_time}-${event.end_time}`,
+            title: 'Salmon Run',
+            start_time: event.start_time,
+            end_time: event.end_time,
+        })));
+
+        // Add detailed event information
+        for (let eventDetails of details) {
+            let event = events.find(e => e.start_time === eventDetails.start_time);
+            if (!event)
+                continue;
+
+            event.title = `Salmon Run on ${eventDetails.stage.name}`;
+            event.location = eventDetails.stage.name;
+            let weapons = eventDetails.weapons
+                .map(weapon => weapon ? weapon.weapon : null)
+                .map(weapon => weapon ? weapon.name : 'Random')
+                .map(weapon => `\n • ${weapon}`)
+                .join('');
+            event.description = `Supplied Weapons:${weapons}`;
+        }
+
+        return events;
+    }
+}

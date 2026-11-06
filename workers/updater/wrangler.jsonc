@@ -1,0 +1,128 @@
+{
+  "$schema": "../../node_modules/wrangler/config-schema.json",
+  "name": "splatoon2-ink-updater",
+  "main": "src/index.mjs",
+  "compatibility_date": "2026-09-03",
+  "compatibility_flags": [
+    "nodejs_compat"
+  ],
+  "rules": [
+    {
+      "type": "Data",
+      "globs": [
+        "**/*.png"
+      ],
+      "fallthrough": true
+    }
+  ],
+  "workers_dev": true,
+  "preview_urls": false,
+  "migrations": [
+    {
+      "tag": "v1",
+      "new_sqlite_classes": [
+        "Scheduler"
+      ]
+    }
+  ],
+  "observability": {
+    "enabled": true,
+    "logs": {
+      "head_sampling_rate": 1
+    }
+  },
+  // Select --env dev or --env production explicitly. New schedulers start off;
+  // the admin toggle persists the setting independently of future deployments.
+  "env": {
+    "dev": {
+      "name": "splatoon2-ink-dev-updater",
+      "routes": [
+        {
+          "pattern": "admin.dev.splatoon2.ink",
+          "custom_domain": true
+        }
+      ],
+      "vars": {
+        "SITE_URL": "https://dev.splatoon2.ink",
+        "ADMIN_HOSTNAME": "admin.dev.splatoon2.ink",
+        "AUTOMATIC_SCHEDULING_ENABLED": "false"
+      },
+      // Watchdog only; it respects the persisted automatic-scheduling setting.
+      "triggers": {
+        "crons": [
+          "30 * * * *"
+        ]
+      },
+      "durable_objects": {
+        "bindings": [
+          {
+            "name": "SCHEDULER",
+            "class_name": "Scheduler"
+          }
+        ]
+      },
+      "browser": {
+        "binding": "BROWSER",
+        "remote": true
+      },
+      "images": {
+        "binding": "IMAGES"
+      },
+      "r2_buckets": [
+        {
+          "binding": "ASSETS",
+          "bucket_name": "splatoon2-ink-dev-assets"
+        },
+        {
+          "binding": "PRIVATE",
+          "bucket_name": "splatoon2-ink-dev-private"
+        }
+      ]
+    },
+    "production": {
+      "name": "splatoon2-ink-updater",
+      "routes": [
+        {
+          "pattern": "admin.splatoon2.ink",
+          "custom_domain": true
+        }
+      ],
+      "vars": {
+        "SITE_URL": "https://splatoon2.ink",
+        "ADMIN_HOSTNAME": "admin.splatoon2.ink",
+        "AUTOMATIC_SCHEDULING_ENABLED": "false"
+      },
+      // Watchdog only; it respects the persisted automatic-scheduling setting.
+      "triggers": {
+        "crons": [
+          "30 * * * *"
+        ]
+      },
+      "durable_objects": {
+        "bindings": [
+          {
+            "name": "SCHEDULER",
+            "class_name": "Scheduler"
+          }
+        ]
+      },
+      "browser": {
+        "binding": "BROWSER",
+        "remote": true
+      },
+      "images": {
+        "binding": "IMAGES"
+      },
+      "r2_buckets": [
+        {
+          "binding": "ASSETS",
+          "bucket_name": "splatoon2-ink-assets"
+        },
+        {
+          "binding": "PRIVATE",
+          "bucket_name": "splatoon2-ink-private"
+        }
+      ]
+    }
+  }
+}

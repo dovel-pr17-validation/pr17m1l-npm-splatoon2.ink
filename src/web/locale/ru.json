@@ -1,0 +1,80 @@
+{
+    "coop": {
+        "random_weapon": "Случайное",
+        "supplied_weapons": "Табельное оружие",
+        "this_months_gear": "Снаряжение месяца",
+        "title": "Salmon Run",
+        "current_gear": "Призовое снаряжение"
+    },
+    "new_weapon": "Новое оружие",
+    "regions": {
+        "eu": {
+            "name": "Европа"
+        },
+        "global": {
+            "name": "Все регионы"
+        },
+        "jp": {
+            "name": "Япония"
+        },
+        "na": {
+            "name": "Северная Америка, Австралия, Новая Зеландия"
+        }
+    },
+    "splatfest": {
+        "battle": "Сплатфест-бой",
+        "recent": "Сплатфест",
+        "title": "Сплатфест",
+        "upcoming": "Сплатфест",
+        "results_in": "результаты за {time}",
+        "results": {
+            "title": "Итоги!",
+            "vote": "Симпатии",
+            "solo": "«Соло»",
+            "team": "«Команда»",
+            "%": "%",
+            "regular": "Обычный",
+            "challenge": "Сложный",
+            "average": "В среднем:"
+        },
+        "team_name_wins": "Победа — {team}!",
+        "previous": "История"
+    },
+    "splatnet_gear": {
+        "button": "«Щупозон»",
+        "title": "«Щупозон»"
+    },
+    "times": {
+        "future": "Скоро",
+        "next": "Далее",
+        "now": "Теперь",
+        "soon": "Далее",
+        "open": "Сейчас"
+    },
+    "time": {
+        "in": "через {time}",
+        "remaining": "Осталось: {time}",
+        "dhm": "{days} {hours} {minutes}",
+        "dhms": "{days} {hours} {minutes} {seconds}",
+        "hm": "{hours} {minutes}",
+        "hms": "{hours} {minutes} {seconds}",
+        "ms": "{minutes} {seconds}",
+        "seconds": "{seconds} секунда ::: {seconds} секунды ::: {seconds} секунд",
+        "minutes": "{minutes} минута ::: {minutes} минуты ::: {minutes} минут",
+        "hours": "{hours} час ::: {hours} часа ::: {hours} часов",
+        "days": "{days} день ::: {days} дня ::: {days} дней",
+        "secondsShort": "{seconds} секунда ::: {seconds} секунды ::: {seconds} секунд",
+        "minutesShort": "{minutes} минута ::: {minutes} минуты ::: {minutes} минут",
+        "hoursShort": "{hours} час ::: {hours} часа ::: {hours} часов",
+        "daysShort": "{days} день ::: {days} дня ::: {days} дней"
+    },
+    "gear": {
+        "frequent_ability": "Обычное свойство снаряжения"
+    },
+    "ui": {},
+    "game_mode": {
+        "regular": "Бой салаг",
+        "ranked": "Бой элиты",
+        "league": "Бой лиги"
+    }
+}

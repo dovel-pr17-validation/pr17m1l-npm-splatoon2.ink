@@ -1,0 +1,166 @@
+import { test, beforeEach, afterEach, mock } from 'node:test';
+import assert from 'node:assert/strict';
+import BrowserRunRenderer from '../../src/app/screenshots/BrowserRunRenderer.js';
+import ScreenshotGenerator from '../../src/app/screenshots/ScreenshotGenerator.js';
+
+let browser;
+
+function screenshots() {
+  return new ScreenshotGenerator(new BrowserRunRenderer(browser), process.env.SITE_URL);
+}
+
+const PNG = new Uint8Array([0x89, 0x50, 0x4e, 0x47]);
+
+function fakeBrowserRendering(
+  respond = () => new Response(PNG, { headers: { 'content-type': 'image/png' } }),
+) {
+  const requests = [];
+
+  browser = {
+    async quickAction(action, body) {
+      requests.push({ action, body });
+
+      return respond();
+    },
+  };
+
+  return requests;
+}
+
+beforeEach(() => {
+  process.env.SITE_URL = 'https://example.test';
+});
+afterEach(() => mock.restoreAll());
+
+test('asks Browser Rendering for the deployed screenshot page at the default viewport', async () => {
+  const requests = fakeBrowserRendering();
+  const result = await screenshots().capture({ hash: '/schedules/3600' });
+
+  assert.equal(requests.length, 1);
+
+  const [{ action, body }] = requests;
+
+  assert.equal(action, 'screenshot');
+  assert.equal(body.cacheTTL, 0);
+  assert.equal(body.url, 'https://example.test/screenshots.html#/schedules/3600');
+  assert.deepEqual(body.viewport, { width: 1216, height: 684, deviceScaleFactor: 2 });
+  assert.deepEqual(body.gotoOptions, { waitUntil: 'domcontentloaded', timeout: 10_000 });
+  assert.deepEqual(body.screenshotOptions, { type: 'png' });
+  assert.equal(body.actionTimeout, 10_000);
+  assert.deepEqual(body.waitForSelector, { selector: '[data-screenshot-ready="true"]', timeout: 10_000 });
+  assert.deepEqual(body.setExtraHTTPHeaders, { 'Cache-Control': 'no-cache' });
+  assert.deepEqual(result, { image: PNG, type: 'image/png', width: 2432, height: 1368 });
+});
+
+test('the new-weapon screenshot grows with the number of weapons, and splatfest passes its regions', async () => {
+  const requests = fakeBrowserRendering();
+  const tall = await screenshots().captureNewWeaponScreenshot(3600, 9);
+
+  assert.equal(requests[0].body.viewport.height, 3 * 320 + 60);
+  assert.equal(tall.height, (3 * 320 + 60) * 2);
+
+  const short = await screenshots().captureNewWeaponScreenshot(3600, 1);
+
+  assert.equal(requests[1].body.viewport.height, 700);
+  assert.equal(short.width, 2432);
+
+  await screenshots().captureSplatfestScreenshot('na', 3600, ['na', 'eu']);
+
+  assert.equal(
+    requests[2].body.url,
+    'https://example.test/screenshots.html#/splatfest/na/3600?regions=na,eu',
+  );
+});
+
+test('reports API errors with Cloudflare\'s message', async () => {
+  fakeBrowserRendering(() => Response.json({ errors: [{ message: 'Invalid token' }] }, { status: 401 }));
+
+  await assert.rejects(
+    screenshots().capture({ hash: '/x' }),
+    /Browser Rendering screenshot failed \(401\): Invalid token/,
+  );
+});
+
+function immediateBackoff() {
+  const delays = [];
+
+  mock.method(globalThis, 'setTimeout', (callback, delay) => {
+    delays.push(delay);
+    queueMicrotask(callback);
+  });
+
+  return delays;
+}
+
+test('retries timeout responses and succeeds with the same screenshot request', async () => {
+  const delays = immediateBackoff();
+  let attempt = 0;
+  const requests = fakeBrowserRendering(() =>
+    ++attempt < 3
+      ? Response.json({ errors: [{ message: 'Navigation timeout of 10000 ms exceeded' }] }, { status: 422 })
+      : new Response(PNG),
+  );
+  const result = await screenshots().capture({ hash: '/schedules/3600' });
+
+  assert.deepEqual(result.image, PNG);
+  assert.equal(requests.length, 3);
+  assert.deepEqual(requests[0].body, requests[2].body);
+  assert.deepEqual(delays, [500, 1000]);
+});
+
+test('stops after three retries and preserves the final error', async () => {
+  const delays = immediateBackoff();
+  const requests = fakeBrowserRendering(() => new Response('upstream unavailable', { status: 503 }));
+
+  await assert.rejects(screenshots().capture({ hash: '/x' }), /503.*upstream unavailable/);
+  assert.equal(requests.length, 4);
+  assert.deepEqual(delays, [500, 1000, 2000]);
+});
+
+test('does not retry authentication, rate limits or non-timeout validation errors', async () => {
+  const delays = immediateBackoff();
+
+  for (const status of [401, 403, 429, 422]) {
+    let count = 0;
+    const requests = fakeBrowserRendering(() => {
+      count++;
+
+      return new Response('invalid request', { status });
+    });
+
+    await assert.rejects(screenshots().capture({ hash: '/x' }), new RegExp(String(status)));
+    assert.equal(count, 1);
+    assert.equal(requests.length, 1);
+  }
+
+  assert.deepEqual(delays, []);
+});
+
+test('retries network and timeout failures, including while reading the image', async () => {
+  immediateBackoff();
+
+  let attempt = 0;
+  const requests = fakeBrowserRendering(() => {
+    attempt++;
+
+    if (attempt === 1)
+      throw new TypeError('fetch failed');
+
+    if (attempt === 2)
+      throw new DOMException('request timed out', 'TimeoutError');
+
+    if (attempt === 3)
+      return new Response(
+        new ReadableStream({
+          start(controller) {
+            controller.error(new TypeError('connection reset'));
+          },
+        }),
+      );
+
+    return new Response(PNG);
+  });
+
+  assert.deepEqual((await screenshots().capture({ hash: '/x' })).image, PNG);
+  assert.equal(requests.length, 4);
+});

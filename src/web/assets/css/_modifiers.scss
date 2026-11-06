@@ -1,0 +1,201 @@
+.font-splatoon1 {
+    font-family: Splatoon1, $family-sans-serif;
+}
+
+.font-splatoon2 {
+    font-family: Splatoon2, $family-sans-serif;
+}
+
+.fa-spin {
+    animation: fa-spin 2s infinite linear;
+}
+
+@-webkit-keyframes fa-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
+}
+@keyframes fa-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(359deg);
+    }
+}
+
+@include mobile {
+    .level:not(.is-mobile) .level-item {
+        margin-right: 0; // Fix horizontal alignment issue with the Game Mode Header icon
+    }
+}
+
+@include desktop-only {
+    .is-narrow-desktop-only {
+        flex: none;
+    }
+}
+
+@include tablet {
+    .dropdown.is-right-tablet .dropdown-menu {
+        left: auto;
+        right: 0;
+    }
+}
+
+.button.is-translucent {
+    @extend .text-shadow;
+
+    background: rgba($white-ter, 0.4);
+    border: rgba($white-ter, 0.9);
+    color: $white-ter;
+
+    &:hover {
+        background: rgba($white, 0.5);
+        border: rgba($white, 1.0);
+        color: $white;
+    }
+}
+
+.button.is-translucent-dark {
+    @extend .text-shadow;
+
+    background: rgba($grey, 0.4);
+    border: rgba($grey, 0.9);
+    color: $grey-lighter;
+
+    &:hover {
+        background: rgba($grey-light, 0.5);
+        border: rgba($grey-light, 1.0);
+        color: $white;
+    }
+}
+
+.button.is-clear {
+    @extend .text-shadow;
+
+    background: transparent;
+    border: rgba($white-ter, 0.9);
+    color: $grey-lighter;
+
+    &:hover {
+        background: rgba($white, 0.2);
+        border: rgba($white, 1.0);
+        color: $white;
+    }
+}
+
+.button.is-rounded {
+    border-radius: 100px;
+    padding-left: 12px;
+    padding-right: 12px;
+}
+
+.chevron::before {
+    border-style: solid;
+    border-width: 0.1em 0.1em 0 0;
+    content: '';
+    display: inline-block;
+    height: 0.45em;
+    left: 0.15em;
+    position: relative;
+    top: 0.15em;
+    transform: rotate(-45deg);
+    vertical-align: top;
+    width: 0.45em;
+}
+
+.chevron.right:before {
+    left: 0;
+    transform: rotate(45deg);
+}
+
+.chevron.bottom:before {
+    // top: 0;
+    top: 0.45em;
+    left: 0;
+    transform: rotate(135deg);
+}
+
+.chevron.left:before {
+    left: 0.1em;
+    transform: rotate(-135deg);
+}
+
+.hand {
+    cursor: pointer;
+}
+
+.title-color {
+    color: $title-color;
+}
+
+.title-squid {
+    background-color: $purple;
+    color: $title-color;
+    @extend .bg-stripes;
+    @extend .bg-mask-title-squid;
+
+    display: inline-block;
+
+    padding: 2px 48px 2px 20px;
+    margin: 0 0 10px -20px;
+
+    &.is-size-6 {
+        padding-right: 36px;
+    }
+}
+
+.tilt-right {
+    transform: rotate(1.4deg);
+}
+
+.tilt-right-slight {
+    transform: rotate(1.0deg);
+}
+
+.tilt-left {
+    transform: rotate(-1.4deg);
+}
+
+.tilt-left-slight {
+    transform: rotate(-1.0deg);
+}
+
+.columns.is-slim {
+    margin-left: -0.4rem;
+    margin-right: -0.4rem;
+
+    .column {
+        padding-left: 0.4rem;
+        padding-right: 0.4rem;
+    }
+}
+
+.columns.is-slimmer {
+    margin-left: -0.2rem;
+    margin-right: -0.2rem;
+
+    .column {
+        padding-left: 0.2rem;
+        padding-right: 0.2rem;
+    }
+}
+
+@include tablet {
+    .modal {
+        &.is-wide {
+            .modal-content, .modal-card {
+                width: 1000px;
+            }
+        }
+        &.is-xwide {
+            .modal-content, .modal-card {
+                width: 1200px;
+            }
+        }
+    }
+}

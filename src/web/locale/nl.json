@@ -1,0 +1,80 @@
+{
+    "coop": {
+        "random_weapon": "Willekeurig",
+        "supplied_weapons": "Beschikbare wapens",
+        "this_months_gear": "Uitrusting van de maand",
+        "title": "Salmon Run",
+        "current_gear": "Verkrijgbare uitrusting"
+    },
+    "new_weapon": "Nieuw Wapen",
+    "regions": {
+        "eu": {
+            "name": "Europa"
+        },
+        "global": {
+            "name": "Alle regio's"
+        },
+        "jp": {
+            "name": "Japan"
+        },
+        "na": {
+            "name": "Noord-Amerika, Australië, Nieuw-Zeeland"
+        }
+    },
+    "splatfest": {
+        "battle": "Splatfest-gevecht",
+        "recent": "Splatfest",
+        "title": "Splatfest",
+        "upcoming": "Splatfest",
+        "results_in": "resultaten in {time}",
+        "results": {
+            "title": "Resultaten!",
+            "vote": "Stemmen",
+            "solo": "Solo",
+            "team": "Team",
+            "%": "%",
+            "regular": "Standaard",
+            "challenge": "Pro",
+            "average": "Gemiddelde"
+        },
+        "team_name_wins": "Overwinning voor team {team}!",
+        "previous": "Vorige Splatfests"
+    },
+    "splatnet_gear": {
+        "button": "Tentashop",
+        "title": "Tentashop"
+    },
+    "times": {
+        "future": "Daarna",
+        "next": "Volgende",
+        "now": "Nu",
+        "soon": "Binnenkort!",
+        "open": "Open!"
+    },
+    "time": {
+        "in": "over {time}",
+        "remaining": "Nog {time}",
+        "dhm": "{days} {hours} {minutes}",
+        "dhms": "{days} {hours} {minutes} {seconds}",
+        "hm": "{hours} {minutes}",
+        "hms": "{hours} {minutes} {seconds}",
+        "ms": "{minutes} {seconds}",
+        "seconds": "{seconds} seconde ::: {seconds} seconden",
+        "minutes": "{minutes} minuut ::: {minutes} minuten",
+        "hours": "{hours} uur ::: {hours} uur",
+        "days": "{days} dag ::: {days} dagen",
+        "secondsShort": "{seconds}s ::: {seconds}s",
+        "minutesShort": "{minutes}m ::: {minutes}m",
+        "hoursShort": "{hours}u ::: {hours}u",
+        "daysShort": "{days}d ::: {days}d"
+    },
+    "gear": {
+        "frequent_ability": "Waarschijnlijk effect"
+    },
+    "ui": {},
+    "game_mode": {
+        "regular": "Standaardgevecht",
+        "ranked": "Profgevecht",
+        "league": "Toernooigevecht"
+    }
+}

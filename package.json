@@ -1,0 +1,98 @@
+{
+  "name": "splatoon2.ink",
+  "private": true,
+  "type": "module",
+  "imports": {
+    "#cdn-images": {
+      "workerd": "./src/common/cdn.worker.js",
+      "default": "./src/common/cdn.node.js"
+    },
+    "#image-converter": {
+      "workerd": "./src/app/screenshots/convert.worker.js",
+      "default": "./src/app/screenshots/convert.node.js"
+    }
+  },
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "serve": "vue-cli-service serve",
+    "build": "vue-cli-service build --modern --no-clean",
+    "test": "node --test && npm run updater:test",
+    "lint": "eslint .",
+    "cron": "node src/app/cron.js",
+    "start": "npm run splatnet && npm run social && npm run cron",
+    "locale-man": "node node_modules/locale-man/ -l en,es,es-MX,fr,fr-CA,de,nl,it,ru,ja -o src/locale",
+    "splatnet": "node src/app/index.js splatnet",
+    "utility:copyTranslation": "node src/utility/index.js copyTranslation",
+    "utility:getSplatNetLanguageFiles": "node src/utility/index.js getSplatNetLanguageFiles",
+    "utility:updateGear": "node src/utility/index.js updateGear",
+    "lint-fix": "npm run lint -- --fix",
+    "updater:dev": "wrangler dev --config workers/updater/wrangler.jsonc --env dev --test-scheduled",
+    "updater:test": "vitest run --config workers/updater/vitest.config.mjs",
+    "updater:deploy:dry-run": "wrangler deploy --config workers/updater/wrangler.jsonc --env dev --dry-run",
+    "updater:deploy": "wrangler deploy --config workers/updater/wrangler.jsonc --env dev",
+    "updater:deploy:production": "wrangler deploy --config workers/updater/wrangler.jsonc --env production",
+    "updater:tail": "wrangler tail --config workers/updater/wrangler.jsonc --env dev",
+    "social": "node src/app/index.js social",
+    "social:test": "node src/app/index.js socialTest",
+    "admin:preview": "node workers/updater/preview/server.mjs",
+    "screenshot": "node src/app/screenshots/cli.js",
+    "screenshot:cloudflare": "wrangler dev --config workers/screenshots/wrangler.jsonc"
+  },
+  "dependencies": {
+    "@atproto/api": "^0.20.42",
+    "@sentry/cloudflare": "^10.73.0",
+    "@sentry/core": "^10.73.0",
+    "@sentry/node": "^10.73.0",
+    "bulma": "^0.9.4",
+    "bulma-tooltip": "^3.0.2",
+    "console-stamp": "^3.1.2",
+    "cron": "^4.4.0",
+    "delay": "^4.4.0",
+    "he": "^1.1.1",
+    "ics": "^3.12.0",
+    "jose": "^6.2.12",
+    "json-stable-stringify": "^1.3.0",
+    "jsonpath-plus": "^10.4.0",
+    "lodash": "^4.18.1",
+    "mkdirp": "^3.0.1",
+    "moment-timezone": "^0.6.3",
+    "puppeteer": "^25.10.0",
+    "serve-handler": "^6.1.7",
+    "sharp": "^0.35.4",
+    "v-click-outside": "^3.0.1",
+    "vue": "^2.7.16",
+    "vue-clipboard2": "^0.3.1",
+    "vue-router": "^3.6.5",
+    "vuex": "^3.6.2",
+    "vuex-i18n": "^1.13.1"
+  },
+  "devDependencies": {
+    "@cloudflare/vitest-plugin": "^1.1.3",
+    "@eslint/js": "^10.0.1",
+    "@fullhuman/postcss-purgecss": "^8.0.0",
+    "@vue/cli-plugin-babel": "^5.0.9",
+    "@vue/cli-service": "^5.0.9",
+    "eslint": "^10.10.0",
+    "eslint-plugin-vue": "^10.10.0",
+    "globals": "^17.12.0",
+    "locale-man": "^0.0.5",
+    "sass": "^1.103.1",
+    "sass-loader": "^17.0.1",
+    "vitest": "^4.1.11",
+    "vue-template-compiler": "^2.7.16",
+    "wrangler": "^4.128.0"
+  },
+  "postcss": {
+    "plugins": {
+      "autoprefixer": {}
+    }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "firefox esr",
+    "not dead"
+  ]
+}

@@ -1,0 +1,80 @@
+{
+    "coop": {
+        "random_weapon": "Casuale",
+        "supplied_weapons": "Armi fornite",
+        "this_months_gear": "Equipaggiamento del mese",
+        "title": "Salmon Run",
+        "current_gear": "Oggetto attuale"
+    },
+    "new_weapon": "Nuova Arma",
+    "regions": {
+        "eu": {
+            "name": "Europa"
+        },
+        "global": {
+            "name": "Tutte le regioni"
+        },
+        "jp": {
+            "name": "Giappone"
+        },
+        "na": {
+            "name": "America del Nord, Australia, Nuova Zelanda"
+        }
+    },
+    "splatfest": {
+        "battle": "Partite tematiche",
+        "recent": "Festival",
+        "title": "Festival",
+        "upcoming": "Festival",
+        "results_in": "risultati in {time}",
+        "results": {
+            "title": "Risultati!",
+            "vote": "Voti",
+            "solo": "In solitaria",
+            "team": "In squadra",
+            "%": "%",
+            "regular": "Normale",
+            "challenge": "Sfida",
+            "average": "Media:"
+        },
+        "team_name_wins": "Vince la squadra {team}!",
+        "previous": "Festival terminati"
+    },
+    "splatnet_gear": {
+        "button": "Calama-zone",
+        "title": "Calama-zone"
+    },
+    "times": {
+        "future": "Successivi",
+        "next": "Prossimi",
+        "now": "Adesso",
+        "soon": "Presto!",
+        "open": "In corso!"
+    },
+    "time": {
+        "in": "tra {time}",
+        "remaining": "{time} rimanenti",
+        "dhm": "{days} {hours} {minutes}",
+        "dhms": "{days} {hours} {minutes} {seconds}",
+        "hm": "{hours} {minutes}",
+        "hms": "{hours} {minutes} {seconds}",
+        "ms": "{minutes} {seconds}",
+        "seconds": "{seconds} secondo ::: {seconds} secondi",
+        "minutes": "{minutes} minuto ::: {minutes} minuti",
+        "hours": "{hours} ora ::: {hours} ore",
+        "days": "{days} giorno ::: {days} giorni",
+        "secondsShort": "{seconds}s ::: {seconds}s",
+        "minutesShort": "{minutes}m ::: {minutes}m",
+        "hoursShort": "{hours}o ::: {hours}o",
+        "daysShort": "{days}g ::: {days}g"
+    },
+    "gear": {
+        "frequent_ability": "Abilità comune"
+    },
+    "ui": {},
+    "game_mode": {
+        "regular": "Partita amichevole",
+        "ranked": "Partita pro",
+        "league": "Partita di lega"
+    }
+}

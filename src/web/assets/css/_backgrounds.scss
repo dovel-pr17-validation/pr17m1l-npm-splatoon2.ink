@@ -1,0 +1,97 @@
+// Images
+$bg-squids: url(../img/bg-squids.png);
+$bg-squids-light: url(../img/bg-squids-light.png);
+$bg-stripes: url(../img/bg-stripes.png);
+$bg-dots: url(../img/bg-dots.png);
+$bg-spots: url(../img/bg-spots.png);
+$bg-circles: url(../img/bg-circles.png);
+$bg-wavy: url(../img/bg-wavy.png);
+$bg-mask-product: url(../img/bg-mask-product.png);
+$bg-mask-title-squid: url(../img/bg-mask-title-squid.png);
+$bg-mask-hook: url(../img/bg-mask-hook.png);
+$bg-mask-banner: url(../img/bg-mask-banner.png);
+$bg-mask-ink-splat: url(../img/bg-mask-ink-splat.svg);
+
+// Colors
+$bg-battle-regular: #19d719;
+$bg-battle-ranked: #f54910;
+$bg-battle-league: #f02d7d;
+
+// Backgrounds
+.bg-squids {
+    background-image: $bg-squids;
+    background-position: top;
+    background-size: 360px 360px;
+}
+
+.bg-squids-light {
+    background-image: $bg-squids-light;
+    background-position: top;
+    background-size: 270px 270px;
+}
+
+.bg-stripes {
+    background-image: $bg-stripes;
+    background-position: top;
+    background-size: 80px 80px;
+}
+
+.bg-stripes-gradient {
+    background-image: linear-gradient(to bottom, transparent, rgba($black-ter ,0.1)), $bg-stripes;
+    background-position: top;
+    background-size: 100% 100%, 80px 80px;
+}
+
+.bg-spots-dots {
+    background-image : $bg-spots, $bg-dots;
+    background-position: 50% top;
+    background-size: 189px 189px, 40px 40px;
+}
+
+.bg-circles {
+    background-image: $bg-circles;
+    background-position: 50% top;
+    background-size: 240px 120px;
+}
+
+.bg-wavy {
+    background-image: $bg-wavy;
+    background-position: 50% top;
+    background-size: 120px 60px;
+}
+
+// Background masks
+.bg-mask-product {
+    mask-image: $bg-mask-product;
+    mask-repeat: no-repeat;
+    mask-size: 600px 960px; // Original value: 500px 800px
+    mask-position: center top;
+}
+
+.bg-mask-title-squid {
+    mask-image: $bg-mask-title-squid;
+    mask-size: cover;
+    mask-position: right center;
+    mask-repeat: no-repeat;
+}
+
+.bg-mask-hook {
+    mask-image: $bg-mask-hook;
+    mask-size: 36px 29px;
+    mask-position: center top;
+    mask-repeat: no-repeat;
+}
+
+.bg-mask-banner {
+    mask-image: $bg-mask-banner;
+    mask-repeat: no-repeat;
+    mask-size: 100% 100%;
+    mask-position: center;
+}
+
+.bg-mask-ink-splat {
+    mask-image: $bg-mask-ink-splat;
+    mask-repeat: no-repeat;
+    mask-size: contain;
+    mask-position: center;
+}

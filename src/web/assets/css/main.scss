@@ -1,0 +1,850 @@
+@import './fonts';
+@import './variables';
+@import '~bulma';
+@import './modifiers';
+@import './backgrounds';
+@import './boxes';
+@import '~bulma-tooltip';
+
+html {
+    @extend .bg-squids;
+}
+
+body #main {
+    transition: filter 0.15s ease;
+}
+
+body.has-modal #main {
+    filter: blur(4px);
+}
+
+@include touch {
+    #main .container.is-fluid {
+        padding-left: 0;
+        padding-right: 0;
+    }
+}
+
+// Disabling this for now to fix issues on the Calendars dialog
+// .dropdown {
+//     z-index: 100;
+// }
+
+.level.is-mobile .level-item:last-child {
+    margin-right: 0;
+}
+
+.fa {
+    &:before {
+        display: inline-block;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+}
+
+.fa-3x {
+    font-size: 3em;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.squid-refresh {
+    &:before {
+        @extend .font-splatoon2;
+        content: "\e066";
+    }
+}
+
+.squid-squid {
+    &:before {
+        @extend .font-splatoon2;
+        content: "\e065";
+    }
+}
+
+.squid-icon-tilt {
+    transform: rotate(25deg);
+}
+
+.main-schedule-box {
+    @extend .product-box;
+    @extend .bg-stripes-gradient;
+    @extend .text-shadow;
+
+    max-width: 600px;
+    padding: 35px 10px 10px 10px;
+    margin: auto;
+
+    &.splatfest-schedule-box {
+        // Provide a little more room for the third Splatfest stage
+        max-width: 720px;
+        mask-size: 730px 1168px;
+    }
+
+    &.regular {
+        background-color: $bg-battle-regular;
+    }
+
+    &.ranked {
+        background-color: $bg-battle-ranked;
+    }
+
+    &.league {
+        background-color: $bg-battle-league;
+    }
+}
+
+.modal-card.schedule-box {
+    @extend .modal-card-product-box;
+    @extend .text-shadow;
+
+    .modal-card-head {
+        @extend .bg-spots-dots;
+    }
+    .modal-card-body {
+        @extend .bg-stripes-gradient;
+    }
+
+    &.regular {
+        .modal-card-head {
+            background-color: mix($bg-battle-regular, $black-ter, 25%);
+        }
+        .modal-card-body {
+            background-color: $bg-battle-regular;
+        }
+    }
+
+    &.ranked {
+        .modal-card-head {
+            background-color: mix($bg-battle-ranked, $black-ter, 25%);
+        }
+        .modal-card-body {
+            background-color: $bg-battle-ranked;
+        }
+    }
+
+    &.league {
+        .modal-card-head {
+            background-color: mix($bg-battle-league, $black-ter, 25%);
+        }
+        .modal-card-body {
+            background-color: $bg-battle-league;
+        }
+    }
+}
+
+.salmon-run {
+    @extend .text-shadow;
+    max-width: 600px;
+    margin: 40px auto 0;
+
+    .hook-box, .hook-box:before {
+        background-color: darken(#ff5600, 0%);
+        @extend .bg-spots-dots;
+
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+
+    .salmon-run-header {
+        padding-left: 10px;
+        padding-right: 10px;
+        padding-bottom: 10px;
+    }
+
+    .salmon-run-content {
+        padding: 0 10px 5px 10px;
+
+        @include mobile {
+            padding-top: 5px;
+        }
+    }
+
+    .salmon-run-ad-img {
+        background-image: url(../img/salmon-run.png);
+        background-size: cover;
+        background-repeat: no-repeat;
+        background-position: 50% 50%;
+        z-index: 1;
+        position: relative;
+
+        @include tablet {
+            border-top-right-radius: 8px;
+        }
+
+        .salmon-run-gear-text {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            background: rgba(0,0,0,0.5);
+            font-family: $family-sans-serif;
+            font-size: 0.7rem;
+            padding: 2px 48px 2px 0;
+            text-align: right;
+        }
+
+        .salmon-run-gear-image {
+            @extend .bg-circles;
+            background-color: rgba($white-ter, 0.9);
+            border-radius: 3px;
+
+            position: absolute;
+            bottom: 0;
+            right: 0;
+
+            margin: 3px;
+            padding: 2px;
+        }
+    }
+
+    .salmon-run-open {
+        margin-top: 10px;
+
+        .salmon-run-details {
+            margin-left: -5px;
+            margin-right: -5px;
+        }
+    }
+
+    .salmon-run-future {
+        background: rgba(0,0,0,0.7);
+        padding: 5px 10px 10px;
+        margin-left: -5px;
+        margin-right: -5px;
+        border-radius: 8px 8px 27px 8px;
+        overflow: hidden;
+        line-height: 20px;
+
+        @include mobile {
+            border-bottom-left-radius: 27px;
+        }
+
+        .event:not(:last-child) {
+            border-bottom: 0.1rem dashed $grey;
+            padding-bottom: 0.3rem;
+            margin-bottom: 0.3rem;
+        }
+    }
+
+    .weapon {
+        transition: transform 0.2s ease;
+
+        &:hover {
+            transform: scale(1.2);
+        }
+    }
+}
+
+.splatfest {
+    @extend .text-shadow;
+    max-width: 500px;
+    margin: auto;
+
+    .hook-box, .hook-box:before {
+        background-color: #888;
+        @extend .bg-stripes-gradient;
+
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+
+    .splatfest-header, .splatfest-content {
+        padding: 5px 15px 10px;
+    }
+
+    .has-results .panel-container .panel-image {
+        overflow: hidden;
+
+        img {
+            filter: blur(3px);
+        }
+    }
+
+    .panel-container {
+        position: relative;
+
+        .regions {
+            @extend .title-color;
+            @extend .is-size-7;
+
+            position: absolute;
+            top: 0.45rem;
+            right: 0.25rem;
+
+            opacity: 0;
+            transition: opacity 0.15s ease;
+
+            .region {
+                background: rgba($grey, 0.6);
+                color: $grey-lighter;
+                border-radius: 100px;
+                padding: 0.15rem 0.45rem 0.2rem;
+                margin-left: 0.2rem;
+
+                .icon {
+                    vertical-align: bottom;
+                    margin-right: 0.25rem;
+                }
+            }
+        }
+
+        .labels {
+            @extend .font-splatoon1;
+            @extend .title-color;
+            @extend .is-size-5;
+            position: absolute;
+            bottom: 0.25rem;
+            left: 0.25rem;
+            right: 0.25rem;
+            white-space: pre-line;
+            margin-bottom: 0;
+
+            .column {
+                margin-top: auto;
+            }
+        }
+
+        .splatfest-results {
+            position: absolute;
+            top: 25px;
+            left: 15%;
+            right: 15%;
+        }
+    }
+
+    .mobile-results {
+        position: relative;
+
+        .splatfest-results {
+            border-radius: 0;
+        }
+    }
+}
+
+.festival-period-container {
+    margin-top: -5px;
+}
+
+.festival-period {
+    @extend .bg-mask-banner;
+    @extend .bg-stripes;
+    display: inline-block;
+    background-size: 53px 53px;
+    padding: 4px 20px;
+}
+
+.splatfest-results {
+    @extend .text-shadow;
+
+    overflow: hidden;
+    background-color: rgba($grey-light, 0.75);
+
+    .background {
+        @extend .bg-squids-light;
+        opacity: 0.5;
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+    }
+
+    border-radius: 15px;
+    padding: 10px;
+
+    .results-header {
+        position: relative;
+
+        // We need to elevate the "Results" text out of its column container
+        // since otherwise it's too wide to fit
+        .results-header-text {
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .image {
+            margin: 0 auto;
+        }
+    }
+
+    .result {
+        background: rgba($black, 0.75);
+        border-radius: 200px;
+
+        margin: 10px 0 0 0;
+
+        .column {
+            padding: 12px 0;
+            position: relative;
+
+            .winner-mark, .winner-mark-shadow, .result-container {
+                position: absolute;
+                top: 0;
+                right: 0;
+                bottom: 0;
+                left: 0;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                flex-flow: column;
+
+                .title {
+                    margin-bottom: 0;
+                }
+            }
+
+            .winner-mark {
+                @extend .bg-mask-ink-splat;
+
+                z-index: 0;
+                margin: -5px;
+            }
+
+            .winner-mark-shadow {
+                background: $bg-mask-ink-splat;
+                background-repeat: no-repeat;
+                background-position: center;
+                margin: -4px -6px -6px -4px;
+                opacity: 0.25;
+            }
+
+            .result-container {
+                z-index: 1;
+
+                .percent {
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}
+
+.splatfest.show-regions, .splatfest:hover {
+    .regions {
+        opacity: 1;
+    }
+}
+
+.about-box {
+    position: relative;
+    margin-top: 50px;
+
+    .hook-box, .hook-box:before {
+        background-color: $purple;
+        @extend .bg-stripes-gradient;
+    }
+
+    @include desktop {
+        .hook-box:before {
+            mask-position: calc(50% - 20px) top;
+            background-position-x: -20px !important;
+        }
+        .hook-box {
+            margin: 0 40px 0 0;
+        }
+    }
+
+    .hook-box {
+        padding: 25px;
+        overflow: visible;
+    }
+
+    .hero-image {
+        width: 307px;
+        height: 250px;
+        shape-outside: polygon(0 0, 100% 0, 100% 100%, 50% 100%, 50% 50%, 0 50%);
+        margin: -40px -55px 0 0;
+    }
+}
+
+.calendar-box {
+    position: relative;
+    margin-top: 100px;
+    margin-bottom: 100px;
+
+    .hook-box, .hook-box:before {
+        background-color: $purple;
+        @extend .bg-stripes-gradient;
+    }
+
+    @include desktop {
+        .hook-box:before {
+            mask-position: calc(50% - 20px) top;
+            background-position-x: -20px !important;
+        }
+        .hook-box {
+            margin: 0 40px 0 0;
+        }
+    }
+
+    .hook-box {
+        padding: 25px;
+        overflow: visible;
+    }
+
+    .hero-image {
+        width: 300px;
+        height: 307px;
+        shape-outside: polygon(0 0, 100% 0, 100% 100%, 20% 100%, 20% 80%, 0 80%);
+        margin: -60px -55px 0 0;
+    }
+}
+
+.main-schedule {
+    background: rgba(0,0,0,0.7);
+    padding: 5px 10px 10px;
+    margin: 0 -5px 15px;
+    border-radius: 12px;
+
+    .top-bar {
+        margin-bottom: 0.5rem;
+    }
+}
+
+.stage-image {
+    border-radius: 10px;
+
+    position: relative;
+
+    > figure > img {
+        object-fit: contain;
+        object-position: top;
+        border-radius: 10px;
+    }
+
+    .stage-title {
+        position: absolute;
+        right: 3px;
+        bottom: 3px;
+
+        padding: 2px 5px;
+        max-width: 95%;
+
+        background: rgba(0,0,0,0.7);
+        border-radius: 8px;
+
+        font-size: 0.9rem;
+
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+}
+
+.splatnet-gear-dialog {
+    background: rgba($grey-light, 0.25);
+    border-radius: 20px;
+    padding: 15px;
+}
+
+.splatfest-history-dialog {
+    .modal-card-head, .modal-card-body {
+        background: rgba($grey-light, 0.25);
+    }
+
+    .splatfest-history-row:first-child {
+        margin-top: 25px;
+    }
+
+    .splatfest-history-row:not(:last-child) {
+        margin-bottom: 50px;
+    }
+
+    .splatfest-results-container {
+        width: 325px;
+    }
+
+    .splatfest-results-container, .idol-results-container {
+        .splatfest-results {
+            position: relative;
+        }
+    }
+
+    .idol-results {
+        .has-idol {
+            align-self: flex-end;
+            z-index: 10;
+
+            &:first-child {
+                margin-right: -65px;
+            }
+            &:last-child {
+                margin-left: -65px;
+            }
+        }
+    }
+}
+
+.merchandise-box {
+    @extend .product-box;
+    @extend .bg-circles;
+
+    position: relative;
+
+    mask-size: 500px 800px;
+
+    background-color: $white-ter;
+    color: $black;
+
+    border-radius: 15px;
+    padding: 38px 10px 0 10px;
+
+    transition: transform 0.2s ease;
+
+    &.tilt-left:hover {
+        transform: rotate(-1.4deg) scale(1.05);
+    }
+    &.tilt-right:hover {
+        transform: rotate(1.4deg) scale(1.05);
+    }
+
+    .brand {
+        position: absolute;
+        top: 6px;
+        left: 6px;
+    }
+
+    .skill-img-bg {
+        display: inline-block;
+        line-height: 0;
+        vertical-align: middle;
+        padding: 3px;
+        background: #000;
+        border-radius: 50%;
+    }
+
+    .skills {
+        position: absolute;
+        top: 6px;
+        right: 6px;
+        text-align: center;
+
+        .main, .sub {
+            line-height: 0;
+            margin: 0 auto 3px;
+        }
+
+        .main img {
+            width: 30px;
+        }
+
+        .sub img {
+            width: 22px;
+        }
+    }
+
+    .remaining-time {
+        margin-bottom: 0;
+    }
+
+    .gear-image {
+        margin: 0 20px;
+    }
+
+    .gear-name {
+        position: relative;
+    }
+
+    &.salmon-run-gear .gear-name {
+        padding: 10px 0;
+    }
+
+    .info-overlay {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+
+        opacity: 0;
+        transform: translate(0, 2px);
+        transition: all 0.2s ease;
+
+        .info-overlay-container {
+            margin-top: 2px;
+            background: rgba($white-ter, 0.9);
+            border-radius: 10px;
+        }
+
+        .skill-img-bg img {
+            width: 26px;
+        }
+
+        .original-gear {
+            .skill-img-bg img {
+                width: 24px;
+            }
+
+            .sub {
+                margin: 7px 0 0 2px;
+                img {
+                    width: 15px;
+                }
+            }
+
+            .cash {
+                width: 20px;
+                height: 20px;
+            }
+
+            .strikethrough {
+                position: relative;
+            }
+
+            .strikethrough:before {
+                pointer-events: none;
+                position: absolute;
+                content: "";
+                left: -5px;
+                top: 50%;
+                right: -5px;
+                border-top: 3px solid;
+                border-color: red;
+                opacity: 0.6;
+
+                -webkit-transform:rotate(-20deg);
+                -moz-transform:rotate(-20deg);
+                -ms-transform:rotate(-20deg);
+                -o-transform:rotate(-20deg);
+                transform:rotate(-20deg);
+            }
+        }
+    }
+
+    &:hover .info-overlay {
+        opacity: 1;
+        transform: none;
+    }
+
+    .bottom-bar {
+        @extend .bg-stripes;
+        margin-top: 5px;
+        margin-left: -10px;
+        margin-right: -10px;
+        padding: 4px 10px;
+
+        color: $white-ter;
+        @extend .text-shadow;
+    }
+
+    .cash {
+        width: 24px;
+        height: 24px;
+        vertical-align: bottom;
+    }
+
+    &.shoes .bottom-bar {
+        background-color: #e66900;
+    }
+
+    &.head .bottom-bar {
+        background-color: #ee156e;
+    }
+
+    &.clothes .bottom-bar {
+        background-color: #1dd6ad;
+    }
+}
+
+.new-weapon-box {
+    @extend .product-box;
+    @extend .bg-wavy;
+    @extend .text-shadow;
+
+    max-width: 250px;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: #999;
+    color: $black;
+
+    border-radius: 20px;
+    padding: 38px 10px 0 10px;
+
+    .main-content-wrapper {
+        position: relative;
+        padding: 10px 0 30px;
+
+        .weapon-special-sub {
+            z-index: 10;
+            position: absolute;
+            top: 0;
+            right: 0;
+
+            .image-wrapper {
+                display: inline-block;
+                background: rgba($black, 0.75);
+                border-radius: 5px;
+                padding: 4px;
+                margin-left: 2px;
+            }
+        }
+
+        .weapon-name {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+
+            background: rgba($black, 0.5);
+            margin-left: -10px;
+            margin-right: -10px;
+            padding: 5px 10px;
+            color: $white;
+        }
+    }
+}
+
+.shifty-box {
+    @extend .product-box;
+    @extend .bg-wavy;
+    @extend .text-shadow;
+
+    max-width: 400px;
+    margin-left: auto;
+    margin-right: auto;
+
+    background-color: #999;
+
+    border-radius: 20px;
+    padding: 38px 10px 0 10px;
+}
+
+.hero-foot .dropdown-trigger .icon {
+    margin-left: -5px;
+    line-height: 0.45rem;
+}
+
+.error404 {
+    @extend .text-shadow;
+    max-width: 500px;
+    margin: auto;
+
+    .hook-box, .hook-box:before {
+        background-color: #888;
+        @extend .bg-stripes-gradient;
+
+        padding-left: 0;
+        padding-right: 0;
+        padding-bottom: 0;
+    }
+
+    .box-header {
+        padding: 5px 15px 10px;
+    }
+
+    .box-footer {
+        padding: 5px 15px 10px;
+    }
+}

@@ -1,0 +1,80 @@
+{
+    "coop": {
+        "random_weapon": "ランダム",
+        "supplied_weapons": "支給ブキ",
+        "this_months_gear": "今月のギア",
+        "title": "SALMON RUN",
+        "current_gear": "今回のギア"
+    },
+    "new_weapon": "新しいブキ",
+    "regions": {
+        "eu": {
+            "name": "欧州"
+        },
+        "global": {
+            "name": "すべての地域"
+        },
+        "jp": {
+            "name": "日本"
+        },
+        "na": {
+            "name": "北米、オセアニア"
+        }
+    },
+    "splatfest": {
+        "battle": "フェスマッチ",
+        "recent": "フェス",
+        "title": "フェス",
+        "upcoming": "フェス",
+        "results_in": "結果発表 {time}",
+        "results": {
+            "title": "結果発表！",
+            "vote": "得票率",
+            "solo": "ソロ",
+            "team": "チーム",
+            "%": "%",
+            "regular": "レギュラー",
+            "challenge": "チャレンジ",
+            "average": "へいきん"
+        },
+        "team_name_wins": "{team}チームの勝利！",
+        "previous": "これまでのフェス"
+    },
+    "splatnet_gear": {
+        "button": "ゲソタウン",
+        "title": "ゲソタウン"
+    },
+    "times": {
+        "future": "そのつぎ",
+        "next": "つぎ",
+        "now": "今",
+        "soon": "もうすぐ",
+        "open": "オープン！"
+    },
+    "time": {
+        "in": "{time}後",
+        "remaining": "残り{time}",
+        "dhm": "{days}{hours}{minutes}",
+        "dhms": "{days}{hours}{minutes}{seconds}",
+        "hm": "{hours}{minutes}",
+        "hms": "{hours}{minutes}{seconds}",
+        "ms": "{minutes}{seconds}",
+        "seconds": "{seconds}秒 ::: {seconds}秒",
+        "minutes": "{minutes}分 ::: {minutes}分",
+        "hours": "{hours}時間 ::: {hours}時間",
+        "days": "{days}日 ::: {days}日",
+        "secondsShort": "{seconds}秒 ::: {seconds}秒",
+        "minutesShort": "{minutes}分 ::: {minutes}分",
+        "hoursShort": "{hours}時間 ::: {hours}時間",
+        "daysShort": "{days}日 ::: {days}日"
+    },
+    "gear": {
+        "frequent_ability": "つきやすいギアパワー"
+    },
+    "ui": {},
+    "game_mode": {
+        "regular": "レギュラーマッチ",
+        "ranked": "ガチマッチ",
+        "league": "リーグマッチ"
+    }
+}

@@ -1,0 +1,69 @@
+// Generic boxes
+.product-box {
+    @extend .bg-mask-product;
+    border-radius: 32px;
+    padding-top: 35px;
+}
+
+.modal-rounded-box {
+    .modal-card-head {
+        border: none;
+
+        border-top-left-radius: 32px;
+        border-top-right-radius: 32px;
+
+        display: block; // Fixes issues with .level
+    }
+    .modal-card-body {
+        @extend .bg-stripes;
+
+        border-bottom-left-radius: 32px;
+        border-bottom-right-radius: 32px;
+
+        padding-bottom: 32px;
+
+        &::-webkit-scrollbar {
+            width: 8px;
+        }
+        &::-webkit-scrollbar-track {
+            margin-bottom: 32px;
+        }
+        &::-webkit-scrollbar-thumb {
+            border-radius: 10px;
+            background: rgba($white, 0.6);
+            &:hover {
+                background: rgba($white-ter, 0.8);
+            }
+        }
+    }
+}
+
+.modal-card-product-box {
+    @extend .modal-rounded-box;
+
+    .modal-card-head {
+        @extend .bg-mask-product;
+        mask-size: 730px 1168px;
+        background-position-y: bottom;
+        padding-top: 45px;
+    }
+}
+
+.hook-box {
+    border-radius: 32px;
+    padding: 10px;
+    overflow: hidden;
+
+    &:before {
+        content: "";
+        position: absolute;
+        background-position-y: bottom !important;
+
+        width: 100%;
+        height: 29px;
+        top: -28px;
+        left: 0;
+
+        @extend .bg-mask-hook;
+    }
+}

@@ -1,0 +1,89 @@
+{
+    "coop": {
+        "random_weapon": "Random",
+        "supplied_weapons": "Supplied Weapons",
+        "this_months_gear": "This month's gear",
+        "title": "Salmon Run",
+        "current_gear": "Current Gear"
+    },
+    "new_weapon": "New Weapon",
+    "regions": {
+        "eu": {
+            "name": "Europe"
+        },
+        "global": {
+            "name": "All regions"
+        },
+        "jp": {
+            "name": "Japan"
+        },
+        "na": {
+            "name": "North America, AU/NZ"
+        }
+    },
+    "splatfest": {
+        "battle": "Splatfest Battle",
+        "recent": "Recent Splatfest",
+        "title": "Splatfest",
+        "upcoming": "Upcoming Splatfest",
+        "global": "Global Splatfest",
+        "results_in": "results in {time}",
+        "results": {
+            "title": "Results!",
+            "vote": "Votes",
+            "solo": "Solo",
+            "team": "Team",
+            "regular": "Normal",
+            "challenge": "Challenge",
+            "average": "Average",
+            "%": "%"
+        },
+        "team_name_wins": "Team {team} wins!",
+        "previous": "Previous Splatfests"
+    },
+    "splatnet_gear": {
+        "button": "SplatNet Gear",
+        "title": "Current SplatNet Gear",
+        "original_gear": "Original Gear"
+    },
+    "times": {
+        "future": "Future",
+        "next": "Next",
+        "now": "Now",
+        "soon": "Soon!",
+        "open": "Now open!"
+    },
+    "time": {
+        "in": "in {time}",
+        "remaining": "{time} remaining",
+        "dhm": "{days} {hours} {minutes}",
+        "dhms": "{days} {hours} {minutes} {seconds}",
+        "hm": "{hours} {minutes}",
+        "hms": "{hours} {minutes} {seconds}",
+        "ms": "{minutes} {seconds}",
+        "seconds": "{seconds} second ::: {seconds} seconds",
+        "minutes": "{minutes} minute ::: {minutes} minutes",
+        "hours": "{hours} hour ::: {hours} hours",
+        "days": "{days} day ::: {days} days",
+        "secondsShort": "{seconds}s ::: {seconds}s",
+        "minutesShort": "{minutes}m ::: {minutes}m",
+        "hoursShort": "{hours}h ::: {hours}h",
+        "daysShort": "{days}d ::: {days}d"
+    },
+    "gear": {
+        "frequent_ability": "Common gear ability"
+    },
+    "ui": {
+        "about": "About",
+        "map_schedules": "Map Schedules",
+        "get_updates_via_twitter": "Get updates via Twitter!",
+        "get_updates_via_bluesky": "Get updates via Bluesky!",
+        "all_upcoming_stages": "All Upcoming Stages",
+        "disclaimer": "This website is not affiliated with Nintendo. All product names, logos, and brands are property of their respective owners."
+    },
+    "game_mode": {
+        "regular": "Regular Battle",
+        "ranked": "Ranked Battle",
+        "league": "League Battle"
+    }
+}

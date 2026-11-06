@@ -1,0 +1,88 @@
+{
+    "coop": {
+        "random_weapon": "Zufall",
+        "supplied_weapons": "Verfügbare Waffen",
+        "this_months_gear": "Ausrüstung des Monats",
+        "title": "Salmon Run",
+        "current_gear": "Verfügbare Ausrüstung"
+    },
+    "new_weapon": "Neue Waffe",
+    "regions": {
+        "eu": {
+            "name": "Europa"
+        },
+        "global": {
+            "name": "Alle Regionen"
+        },
+        "jp": {
+            "name": "Japan"
+        },
+        "na": {
+            "name": "Nordamerika, Australien, Neuseeland"
+        }
+    },
+    "splatfest": {
+        "battle": "Splatfestkämpfe",
+        "recent": "Vergangenes Splatfest",
+        "title": "Splatfest",
+        "upcoming": "Bevorstehendes Splatfest",
+        "results_in": "Ergebnisse in {time}",
+        "results": {
+            "title": "Ergebnis",
+            "vote": "Stimmen",
+            "solo": "Solo",
+            "team": "Team",
+            "%": " %",
+            "regular": "Standard",
+            "challenge": "Profi",
+            "average": "Durchschnitt"
+        },
+        "team_name_wins": "Team {team} hat gewonnen!",
+        "previous": "Bisherige Splatfeste"
+    },
+    "splatnet_gear": {
+        "button": "TentaWorld",
+        "title": "TentaWorld",
+        "original_gear": "Originale Ausrüstung"
+    },
+    "times": {
+        "future": "Danach",
+        "next": "Demnächst",
+        "now": "Jetzt",
+        "soon": "Demnächst",
+        "open": "Geöffnet!"
+    },
+    "time": {
+        "in": "in {time}",
+        "remaining": "Noch {time}",
+        "dhm": "{days} {hours} {minutes}",
+        "dhms": "{days} {hours} {minutes} {seconds}",
+        "hm": "{hours} {minutes}",
+        "hms": "{hours} {minutes} {seconds}",
+        "ms": "{minutes} {seconds}",
+        "seconds": "{seconds} Sekunde ::: {seconds} Sekunden",
+        "minutes": "{minutes} Minute ::: {minutes} Minuten",
+        "hours": "{hours} Stunde ::: {hours} Stunden",
+        "days": "{days} Tag ::: {days} Tage",
+        "secondsShort": "{seconds}Sek ::: {seconds}Sek",
+        "minutesShort": "{minutes}Min ::: {minutes}Min",
+        "hoursShort": "{hours}Std ::: {hours}Std",
+        "daysShort": "{days}Tg ::: {days}Tg"
+    },
+    "gear": {
+        "frequent_ability": "Wahrscheinlicher Effekt"
+    },
+    "ui": {
+        "about": "Über",
+        "map_schedules": "Arenen-Info",
+        "get_updates_via_twitter": "Informiere dich über Twitter!",
+        "get_updates_via_bluesky": "Informiere dich über Bluesky!",
+        "all_upcoming_stages": "Alle bevorstehenden Arenen",
+        "disclaimer": "Diese Website steht in keiner Verbindung zu Nintendo. Alle Produktnamen, Logos und Marken sind Eigentum der jeweiligen Inhaber."
+    },
+    "game_mode": {
+        "regular": "Standardkampf",
+        "ranked": "Rangkampf",
+        "league": "Ligakampf"
+    }
+}

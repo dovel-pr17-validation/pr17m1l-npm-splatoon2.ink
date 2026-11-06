@@ -1,0 +1,87 @@
+{
+    "coop": {
+        "random_weapon": "Aléatoire",
+        "supplied_weapons": "Armes fournies",
+        "this_months_gear": "Pièce d'équipement du mois",
+        "title": "Salmon Run",
+        "current_gear": "Pièce d'équipement actuelle"
+    },
+    "new_weapon": "Nouvelle arme",
+    "regions": {
+        "eu": {
+            "name": "Europe"
+        },
+        "global": {
+            "name": "Toutes les régions"
+        },
+        "jp": {
+            "name": "Japon"
+        },
+        "na": {
+            "name": "Amérique du Nord, Australie, Nouvelle-Zélande"
+        }
+    },
+    "splatfest": {
+        "battle": "Festimatch",
+        "recent": "Festival",
+        "title": "Festival",
+        "upcoming": "Festival",
+        "results_in": "résultats dans {time}",
+        "results": {
+            "title": "Résultats!",
+            "vote": "Votes",
+            "solo": "Solo",
+            "team": "Équipes",
+            "%": " %",
+            "regular": "Normal",
+            "challenge": "Défi",
+            "average": "Moyenne :"
+        },
+        "team_name_wins": "Victoire de l'équipe {team}!",
+        "previous": "Festivals terminés"
+    },
+    "splatnet_gear": {
+        "button": "Boutique SplatNet",
+        "title": "Boutique SplatNet"
+    },
+    "times": {
+        "future": "Prochains",
+        "next": "Suivants",
+        "now": "À présent",
+        "soon": "Bientôt!",
+        "open": "Ouvert!"
+    },
+    "time": {
+        "in": "dans {time}",
+        "remaining": "{time} restants",
+        "dhm": "{days} {hours} {minutes}",
+        "dhms": "{days} {hours} {minutes} {seconds}",
+        "hm": "{hours} {minutes}",
+        "hms": "{hours} {minutes} {seconds}",
+        "ms": "{minutes} {seconds}",
+        "seconds": "{seconds} seconde ::: {seconds} secondes",
+        "minutes": "{minutes} minute ::: {minutes} minutes",
+        "hours": "{hours} heure ::: {hours} heures",
+        "days": "{days} jour ::: {days} jours",
+        "secondsShort": "{seconds}s ::: {seconds}s",
+        "minutesShort": "{minutes}m ::: {minutes}m",
+        "hoursShort": "{hours}h ::: {hours}h",
+        "daysShort": "{days}j ::: {days}j"
+    },
+    "gear": {
+        "frequent_ability": "Bonus courant"
+    },
+    "ui": {
+        "about": "À propos",
+        "map_schedules": "Horaires des arènes",
+        "get_updates_via_twitter": "Soyez informés par Twitter!",
+        "get_updates_via_bluesky": "Soyez informés par Bluesky!",
+        "all_upcoming_stages": "Les stages à venir",
+        "disclaimer": "Ce site internet n'est pas affilié à Nintendo. Tous les noms de produits, logos et marques appartiennent à leurs propriétaires respectifs."
+    },
+    "game_mode": {
+        "regular": "Match classique",
+        "ranked": "Match pro",
+        "league": "Match de ligue"
+    }
+}
